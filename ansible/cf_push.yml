@@ -1,7 +1,7 @@
 # Publish this application to bluemix using ansible
 ---
 - name: Publish the troll-gate to Bluemix using Ansible
-  hosts: localhost
+  hosts: 127.0.0.1
   connection: local
   vars:
     BLUEMIX_USER: "{{ lookup('env','BLUEMIX_USER') }}"
