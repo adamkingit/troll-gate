@@ -14,7 +14,8 @@ before_install:
   # Pull container.
   - sudo apt-get -qq update
   - 'docker pull webdevops/ansible:alpine-3'
-  - sudo apt-get install ansible virtualenv
+  - sudo apt-get install ansible
+  - sudo apt-get install python-virtualenv
 
   #Install cloudfoundry
   - bash  bin/setup.sh
