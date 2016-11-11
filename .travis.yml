@@ -13,7 +13,7 @@ services:
 before_install:
   # Pull container.
   - sudo apt-get -qq update
-#  - 'docker pull webdevops/ansible:alpine-3'
+  - 'docker pull webdevops/ansible:alpine-3'
   - sudo apt-get install ansible virtualenv
 
   #Install cloudfoundry
