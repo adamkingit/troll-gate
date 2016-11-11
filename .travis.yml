@@ -22,15 +22,19 @@ before_install:
 
 script:
   - npm test
+
+after_success:
   - npm build
 #  - docker run -t   webdevops/ansible:alpine-3 ansible --help
 
 
 deploy:
+  #provide: ansible?
   provider: script
   skip_cleanup: true
   script:
-    - bin/deploy2bm.sh
+    - cd ansible && ansible-playbook cf_push.yml
+#    - bin/deploy2bm.sh
 #    - docker run -t   webdevops/ansible:alpine-3 ansible --help
 
   on:
