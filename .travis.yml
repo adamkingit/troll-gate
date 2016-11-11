@@ -28,9 +28,9 @@ script:
 
 deploy:
   provider: script
+  skip_cleanup: true
   script:
-    - cf --help
-    - bash bin/deploy2bm.sh
+    - bin/deploy2bm.sh
 #    - docker run -t   webdevops/ansible:alpine-3 ansible --help
 
   on:
