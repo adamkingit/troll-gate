@@ -34,7 +34,7 @@ deploy:
   provider: script
   skip_cleanup: true
   script:
-    - cd ansible && ansible-playbook -i localhost cf_push.yml && cd -
+    - cd ansible && ansible-playbook cf_push.yml && cd -
 #    - bin/deploy2bm.sh
 #    - docker run -t   webdevops/ansible:alpine-3 ansible --help
 
