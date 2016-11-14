@@ -17,5 +17,5 @@ else
   sleep 10
   # https://api.travis-ci.org/build/175825525/restart
   RESTART_URL="https://api.travis-ci.org/build/$TRAVIS_BUILD_ID/restart"
-  curl -X POST http://example.com/myconfigs/status -HAuthorization:"token $TRAVIS_TOKEN"
+  curl -X POST http://example.com/myconfigs/status -HAuthorization:"token $TRAVIS_TOKEN"  -d ""
 fi
