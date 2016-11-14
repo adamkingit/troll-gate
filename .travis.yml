@@ -34,6 +34,9 @@ deploy:
   provider: script
   skip_cleanup: true
   script:
+    - echo "see env --------------------------------------------------"
+    - env
+    - echo "see env --------------------------------------------------"
     - cd ansible && ansible-playbook cf_push.yml && cd -
 #    - bin/deploy2bm.sh
 #    - docker run -t   webdevops/ansible:alpine-3 ansible --help
