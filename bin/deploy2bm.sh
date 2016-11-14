@@ -8,6 +8,10 @@
 # env
 # echo "see env --------------------------------------------------"
 
+echo "try travis token"
+travis token --org
+echo "end travis token"
+
 STATUS=$(curl -s -o /dev/null -w '%{http_code}' http://troll-gate.mybluemix.net)
 if [ $STATUS -eq 200 ]; then
   echo "Deployment approved."
