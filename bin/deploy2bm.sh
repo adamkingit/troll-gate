@@ -4,9 +4,9 @@
 # cf login -a api.ng.bluemix.net -u "$BLUEMIX_USER" -p "$BLUEMIX_PASSWORD"
 # cf push
 
-echo "see env --------------------------------------------------"
-env
-echo "see env --------------------------------------------------"
+# echo "see env --------------------------------------------------"
+# env
+# echo "see env --------------------------------------------------"
 
 STATUS=$(curl -s -o /dev/null -w '%{http_code}' http://troll-gate.mybluemix.net)
 if [ $STATUS -eq 200 ]; then
