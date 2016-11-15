@@ -23,7 +23,8 @@ else
 
   echo "cancel build in 10"
   sleep 10
-  curl -X POST -H "Accept: application/vnd.travis-ci.2+json" -H "User-Agent: Travis Req" -H "Authorization: token $TRAVIS_TOKEN" -d "" "$CANCEL_URL"
+  # curl -X POST -H "Accept: application/vnd.travis-ci.2+json" -H "User-Agent: Travis Req" -H "Authorization: token $TRAVIS_TOKEN" -d "" "$CANCEL_URL"
+  echo "simulated build cancel."
 
   echo "sleep 10 while we simulate the gate clearing"
   sleep 10
