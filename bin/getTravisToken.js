@@ -1,9 +1,8 @@
 
-var request=require("request");
+var request=require('request');
 
 var GITHUB_TOKEN = process.env.GITHUB_TOKEN;
 var options = {
-
   url: `https://api.travis-ci.org/auth/github?github_token=${GITHUB_TOKEN}`,
   method: 'POST',
   headers: {
