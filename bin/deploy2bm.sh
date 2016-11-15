@@ -16,19 +16,19 @@ if [ $STATUS -eq 200 ]; then
   cd ansible && ansible-playbook cf_push.yml && cd -
 else
   echo "Deployment not approved. $STATUS"
-  RESTART_URL="https://api.travis-ci.org/jobs/$TRAVIS_JOB_ID/restart"
-  CANCEL_URL="https://api.travis-ci.org/jobs/$TRAVIS_JOB_ID/cancel"
+  RESTART_URL="https://api.travis-ci.org/builds/$TRAVIS_BUILD_ID/restart"
+  CANCEL_URL="https://api.travis-ci.org/builds/$TRAVIS_BUILD_ID/cancel"
   BIN_PATH=$(dirname $0)
   TRAVIS_TOKEN=$(node "$BIN_PATH/getTravisToken.js")
 
-  echo "cancel build"
+  echo "cancel build in 10"
+  sleep 10
   curl -X POST -H "Accept: application/vnd.travis-ci.2+json" -H "User-Agent: Travis Req" -H "Authorization: token $TRAVIS_TOKEN" -d "" "$CANCEL_URL"
-
 
   echo "sleep 10 while we simulate the gate clearing"
   sleep 10
-  # https://api.travis-ci.org/build/175825525/restart
+
   echo "restart build"
-  #TRAVIS_TOKEN="e989fd1c0a4e04474d563b01c21d5769942506cf"
   curl -X POST -H "Accept: application/vnd.travis-ci.2+json" -H "User-Agent: Travis Req" -H "Authorization: token $TRAVIS_TOKEN" -d "" "$RESTART_URL"
+
 fi
