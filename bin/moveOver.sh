@@ -1,6 +1,9 @@
 #!/bin/bash
 
+echo "Check the gate."
 ./bin/deploy2bm.sh
+
+echo "Gate checked."
 
 #Make account.yml
 echo "---" > account.yml
