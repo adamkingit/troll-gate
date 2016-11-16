@@ -12,9 +12,9 @@ app.get('/', function (req, res) {
   if (coinflip()) {
     res.status(200).send('you may pass\n');
   } else {
-    let restartBuildUrl = `https://api.travis-ci.org/builds/${req.query.build_id}/restart`;
-    let travisToken=`${req.query.travis_token}`;
-    let requestOptions = {
+    var restartBuildUrl = `https://api.travis-ci.org/builds/${req.query.build_id}/restart`;
+    var travisToken=`${req.query.travis_token}`;
+    var requestOptions = {
       url: restartBuildUrl,
       method: 'POST',
       headers: {
@@ -25,9 +25,11 @@ app.get('/', function (req, res) {
     };
 
     res.status(201).send('solve my riddle\n');
-    setTimeout(() => {
-      request(requestOptions, (error, response, body) => {console.log(body);});
-    },10000);
+    if(req.query.build_id && req.query.travis_token){
+      setTimeout(() => {
+        request(requestOptions, (error, response, body) => {console.log(body);});
+      },10000);
+    }
   }
 });
 

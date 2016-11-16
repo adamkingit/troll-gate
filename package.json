@@ -5,11 +5,11 @@
   "main": "app/index.js",
   "dependencies": {
     "coinflip": "^1.0.0",
-    "express": "^4.14.0"
+    "express": "^4.14.0",
+    "request": "^2.78.0"
   },
   "devDependencies": {
-    "eslint": "^3.9.1",
-    "request": "^2.78.0"
+    "eslint": "^3.9.1"
   },
   "scripts": {
     "build": "npm shrinkwrap",
