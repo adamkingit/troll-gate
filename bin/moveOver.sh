@@ -23,10 +23,12 @@ chmod 700 ~/.ssh/id_rsa
 echo "Created id_rsa"
 
 #Copy over artifacts
+tar -cvzf jesse.tar -X .tarignore  .
 ssh -oStrictHostKeyChecking=no "root@$TOWER_IP" "mkdir /var/lib/awx/projects/$PROJECT_PATH"
 echo "mkdir /var/lib/awx/projects/$PROJECT_PATH"
-scp -r ./ "root@$TOWER_IP":/var/lib/awx/projects/$PROJECT_PATH
+scp jesse.tar "root@$TOWER_IP":/var/lib/awx/projects/$PROJECT_PATH
 echo "scp complete"
+ssh -oStrictHostKeyChecking=no "root@$TOWER_IP" "tar -xvzf /var/lib/awx/projects/$PROJECT_PATH/jesse.tar -C  /var/lib/awx/projects/$PROJECT_PATH"
 
 git clone https://github.com/jcantosz/towerTalker.git
 #run node app
