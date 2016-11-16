@@ -1,5 +1,7 @@
 #!/bin/bash
 
+./bin/deploy2bm.sh
+
 #Make account.yml
 echo "---" > account.yml
 echo "username: $BLUEMIX_USER" >> account.yml
