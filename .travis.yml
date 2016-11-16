@@ -6,20 +6,21 @@ language: node_js
 node_js:
   - "6"
 
-services:
-  - docker
+# services:
+#   - docker
 
 
 before_install:
+  #Install cloudfoundry
+  - bash  bin/setup.sh
   # Pull container.
-  - sudo apt-get -qq update
-  - 'docker pull webdevops/ansible:alpine-3'
+  # - sudo apt-get -qq update
+  # - 'docker pull webdevops/ansible:alpine-3'
 #  - sudo apt-get install ansible
   - bash bin/ansibleSetup.sh
 #  - sudo apt-get install python-virtualenv
 
-  #Install cloudfoundry
-  - bash  bin/setup.sh
+
 
 script:
   - npm test
