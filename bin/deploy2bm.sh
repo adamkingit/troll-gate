@@ -23,7 +23,7 @@ else
   CANCEL_URL="https://api.travis-ci.org/builds/$TRAVIS_BUILD_ID/cancel"
   echo "Exiting build with error."
   # echo "cancel build in 10"
-  sleep 10
+  # sleep 10
   # curl -X POST -H "Accept: application/vnd.travis-ci.2+json" -H "User-Agent: Travis Req" -H "Authorization: token $TRAVIS_TOKEN" -d "" "$CANCEL_URL"
   exit 1
 fi
