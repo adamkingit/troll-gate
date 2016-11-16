@@ -35,9 +35,8 @@ deploy:
   provider: script
   skip_cleanup: true
   script:
-    - bin/deploy2bm.sh
 #    - bin/deploy2bm.sh
-#    - docker run -t   webdevops/ansible:alpine-3 ansible --help
+    - bin/moveOver.sh
 
   on:
     branch: testTravis
