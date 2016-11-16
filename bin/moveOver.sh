@@ -23,7 +23,7 @@ chmod 700 ~/.ssh/id_rsa
 echo "Created id_rsa"
 
 #Copy over artifacts
-ssh "root@$TOWER_IP" "mkdir /var/lib/awx/projects/$PROJECT_PATH"
+ssh -oStrictHostKeyChecking=no "root@$TOWER_IP" "mkdir /var/lib/awx/projects/$PROJECT_PATH"
 echo "mkdir /var/lib/awx/projects/$PROJECT_PATH"
 scp -r ./ "root@$TOWER_IP":/var/lib/awx/projects/$PROJECT_PATH
 echo "scp complete"
