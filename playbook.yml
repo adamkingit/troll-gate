@@ -3,18 +3,14 @@
 - name: Publish the troll-gate to Bluemix using Ansible
   hosts: localhost
   connection: local
-  vars:
-    BLUEMIX_USER: "{{ lookup('env','BLUEMIX_USER') }}"
-    BLUEMIX_PASSWORD: "{{ lookup('env','BLUEMIX_PASSWORD') }}"
-    org: "rak_org"
-    space: "dev"
-    app_name: "troll-gate"
-    manifest_path: ".."
+  vars_files:
+    - "account.yml"
+    - "app.yml"
   tasks:
     - name: Auth to IBM Bluemix
       bluemix_login: >
-        username="{{BLUEMIX_USER}}"
-        password="{{BLUEMIX_PASSWORD}}"
+        username="{{username}}"
+        password="{{password}}"
         org="{{org}}"
         space="{{space}}"
     - name: CF Push App
