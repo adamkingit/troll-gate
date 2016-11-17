@@ -2,6 +2,9 @@
 
 echo "Check the gate."
 ./bin/deploy2bm.sh
+if [ $?  != 0 ]; then
+  exit 1
+fi
 
 echo "Gate checked."
 
