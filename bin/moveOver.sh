@@ -16,7 +16,7 @@ echo "Created account.yml"
 
 #make app.yml
 echo "---" > app.yml
-echo "app_name: what-a-todd" >> app.yml
+echo "app_name: openfirst-gate" >> app.yml
 echo "manifest_path: manifest.yml" >> app.yml
 echo "" >> app.yml
 echo "Created app.yml"
