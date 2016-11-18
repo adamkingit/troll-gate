@@ -30,19 +30,36 @@ after_success:
 #  - docker run -t   webdevops/ansible:alpine-3 ansible --help
 
 
-deploy:
-  #provide: ansible?
-  provider: script
-  skip_cleanup: true
-  script:
-    # - bin/deploy2bm.sh
-    - bin/moveOver.sh
-
-  on:
-    branch: testTravis
+# deploy:
+#   #provide: ansible?
+#   provider: script
+#   skip_cleanup: true
+#   script:
+#     # - bin/deploy2bm.sh
+#     - bin/moveOver.sh
+#
+#   on:
+#     branch: testTravis
 
 
 # configure notifications (email, IRC, campfire etc)
 # please update this section to your needs!
 #notifications:
 #  irc: "irc.freenode.org#travis"
+
+deploy:
+  - provider: shell
+    skip_cleanup: true
+    script:
+      - bin/copy2S3.sh
+  - provider: s3
+    access_key_id: "{{S3_KEY_ID}}"
+    secret_access_key: "{{S3_KEY}}"
+    bucket: "{{S3_BUCKET}}"
+    skip_cleanup: true
+    region: "us-standard"
+    local_dir: s3
+  # - provider: shell
+  #   <TOWER STUFF HERE>
+    on:
+      branch: testTravis
