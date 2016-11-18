@@ -48,7 +48,7 @@ after_success:
 #  irc: "irc.freenode.org#travis"
 
 deploy:
-  - provider: shell
+  - provider: script
     skip_cleanup: true
     script:
       - bin/copy2S3.sh
@@ -61,7 +61,7 @@ deploy:
     skip_cleanup: true
     region: "us-standard"
     local_dir: ./s3
-  # - provider: shell
+  # - provider: script
   #   <TOWER STUFF HERE>
     on:
       branch: testTravis
