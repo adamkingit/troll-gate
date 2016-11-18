@@ -59,7 +59,7 @@ deploy:
     secret_access_key: "{{S3_KEY}}"
     bucket: "{{S3_BUCKET}}"
     skip_cleanup: true
-    region: "us-standard"
+    region: "US-Standard"
     local_dir: ./s3
   # - provider: script
   #   <TOWER STUFF HERE>
