@@ -55,9 +55,7 @@ deploy:
     on:
       branch: testTravis
   - provider: s3
-    access_key_id: "{{S3_KEY_ID}}"
-    secret_access_key: "{{S3_KEY}}"
-    bucket: "{{S3_BUCKET}}"
+    bucket: "thetodd"
     skip_cleanup: true
     region: "us-west-2"
     local_dir: ./s3
