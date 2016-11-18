@@ -58,7 +58,7 @@ deploy:
     bucket: "{{S3_BUCKET}}"
     skip_cleanup: true
     region: "us-standard"
-    local_dir: s3
+    local_dir: ./s3
   # - provider: shell
   #   <TOWER STUFF HERE>
     on:

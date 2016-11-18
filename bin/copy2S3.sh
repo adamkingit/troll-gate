@@ -20,3 +20,6 @@ echo "Created app.yml"
 tar -cvzf jesse.tar -X .tarignore  .
 mkdir s3
 mv jesse.tar s3
+
+pwd
+ls -la s3
