@@ -57,7 +57,6 @@ deploy:
   - provider: s3
     bucket: "thetodd"
     skip_cleanup: true
-    region: "us-west-2"
     local_dir: ./s3
   # - provider: script
   #   <TOWER STUFF HERE>
