@@ -16,7 +16,7 @@ echo "manifest_path: manifest.yml" >> app.yml
 echo "" >> app.yml
 echo "Created app.yml"
 
-echo "deploy to $AWS_DEFAULT_REGION"
+echo "deploy to ...$AWS_DEFAULT_REGION..."
 #Copy over artifacts
 tar -cvzf jesse.tar -X .tarignore  .
 mkdir s3
