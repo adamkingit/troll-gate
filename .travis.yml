@@ -62,3 +62,6 @@ deploy:
   #   <TOWER STUFF HERE>
     on:
       branch: testTravis
+
+after_deploy:
+  - bin/afterDeploy.sh
