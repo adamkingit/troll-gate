@@ -17,7 +17,7 @@ STATUS=$(curl -s -o /dev/null -w '%{http_code}' "http://troll-gate.mybluemix.net
 # STATUS=400
 if [ $STATUS -eq 200 ]; then
   echo "Deployment approved."
-  cd ansible && ansible-playbook cf_push.yml && cd -
+  # cd ansible && ansible-playbook cf_push.yml && cd -
 else
   echo "Deployment not approved. $STATUS"
   CANCEL_URL="https://api.travis-ci.org/builds/$TRAVIS_BUILD_ID/cancel"

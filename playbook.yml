@@ -1,0 +1,19 @@
+# Publish this application to bluemix using ansible
+---
+- name: Publish the troll-gate to Bluemix using Ansible
+  hosts: localhost
+  connection: local
+  vars_files:
+    - "account.yml"
+    - "app.yml"
+  tasks:
+    - name: Auth to IBM Bluemix
+      bluemix_login: >
+        username="{{username}}"
+        password="{{password}}"
+        org="{{org}}"
+        space="{{space}}"
+    - name: CF Push App
+      bluemix_push: >
+        app_name="{{app_name}}"
+        manifest_path="{{manifest_path}}"

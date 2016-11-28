@@ -9,7 +9,6 @@ node_js:
 # services:
 #   - docker
 
-
 before_install:
   #Install cloudfoundry
   - bash  bin/setup.sh
@@ -30,20 +29,44 @@ after_success:
 #  - docker run -t   webdevops/ansible:alpine-3 ansible --help
 
 
-deploy:
-  #provide: ansible?
-  provider: script
-  skip_cleanup: true
-  script:
-    - bin/deploy2bm.sh
-#    - bin/deploy2bm.sh
-#    - docker run -t   webdevops/ansible:alpine-3 ansible --help
-
-  on:
-    branch: testTravis
+# deploy:
+#   #provide: ansible?
+#   provider: script
+#   skip_cleanup: true
+#   script:
+#     # - bin/deploy2bm.sh
+#     - bin/moveOver.sh
+#
+#   on:
+#     branch: testTravis
 
 
 # configure notifications (email, IRC, campfire etc)
 # please update this section to your needs!
 #notifications:
 #  irc: "irc.freenode.org#travis"
+
+deploy:
+  - provider: script
+    skip_cleanup: true
+    script:
+      - bin/copy2S3.sh
+    on:
+      branch: testTravis
+
+  - provider: s3
+    bucket: "thetodd"
+    skip_cleanup: true
+    local_dir: ./s3
+  # - provider: script
+  #   <TOWER STUFF HERE>
+    on:
+      branch: testTravis
+  - provider: script
+    skip_cleanup: true
+    script:
+      - bin/moveOver.sh
+    on:
+      branch: testTravis
+after_deploy:
+  - bin/afterDeploy.sh
