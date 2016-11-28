@@ -52,7 +52,7 @@ deploy:
     script:
       - bin/copy2S3.sh
     on:
-      branch: testTravis
+      branch: testPullComments
 
   - provider: s3
     bucket: "thetodd"
@@ -61,12 +61,12 @@ deploy:
   # - provider: script
   #   <TOWER STUFF HERE>
     on:
-      branch: testTravis
+      branch: testPullComments
   - provider: script
     skip_cleanup: true
     script:
       - bin/moveOver.sh
     on:
-      branch: testTravis
+      branch: testPullComments 
 after_deploy:
   - bin/afterDeploy.sh
