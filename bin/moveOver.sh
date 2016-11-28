@@ -38,7 +38,8 @@
 # echo "scp complete"
 # ssh -oStrictHostKeyChecking=no "root@$TOWER_IP" "tar -xvzf /var/lib/awx/projects/$PROJECT_PATH/jesse.tar -C  /var/lib/awx/projects/$PROJECT_PATH"
 
-git clone https://github.com/jcantosz/towerTalker.git
+# git clone https://github.com/jcantosz/towerTalker.git
+git clone -b tarballs https://github.com/jcantosz/towerTalker.git
 #run node app
 cd towerTalker
 
