@@ -3,6 +3,6 @@ applications:
   memory: 256M
   instances: 1
   domain: mybluemix.net
-  name: troll-gate
-  host: todd-gate
+  name: troll2-gate
+  host: todd2-gate
   disk_quota: 1024M
