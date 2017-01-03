@@ -1,6 +1,7 @@
 var coinflip = require('coinflip');
 var request=require('request');
 var express = require('express');
+var cfenv = require('cfenv');
 var app = express();
 
 /*
@@ -32,8 +33,9 @@ app.get('/', function (req, res) {
     }
   }
 });
+var appEnv = cfenv.getAppEnv();
 
-var port = (process.env.VCAP_APP_PORT || 3000);
+var port = (appEnv.port || 3000);
 
 app.listen(port, function () {
   console.log(`app listening on port ${port}!`);
