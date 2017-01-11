@@ -2,6 +2,7 @@ var coinflip = require('coinflip');
 var request=require('request');
 var express = require('express');
 var moment = require('moment');
+var cfenv = require('cfenv');
 var app = express();
 
 var serverStartTime = moment();
@@ -35,12 +36,13 @@ app.get('/', function (req, res) {
     }
   }
 });
+var appEnv = cfenv.getAppEnv();
 
 app.get('/uptime', function (req, res) {
   res.send('Server uptime: ' + moment.duration(moment().diff(serverStartTime)).humanize());
 });
 
-var port = (process.env.VCAP_APP_PORT || 3000);
+var port = (appEnv.port || 3000);
 
 app.listen(port, function () {
   console.log(`app listening on port ${port}!`);
