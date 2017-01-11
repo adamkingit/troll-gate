@@ -62,11 +62,11 @@ deploy:
   #   <TOWER STUFF HERE>
     on:
       all_branches: true
-  - provider: script
-    skip_cleanup: true
-    script:
-      - bin/moveOver.sh
-    on:
-      all_branches: true
+  # - provider: script
+  #   skip_cleanup: true
+  #   script:
+  #     - bin/moveOver.sh
+  #   on:
+  #     all_branches: true
 after_deploy:
   - bin/afterDeploy.sh

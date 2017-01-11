@@ -1,7 +1,10 @@
 var coinflip = require('coinflip');
 var request=require('request');
 var express = require('express');
+var moment = require('moment');
 var app = express();
+
+var serverStartTime = moment();
 
 /*
 RESTART_URL="https://api.travis-ci.org/builds/$TRAVIS_BUILD_ID/restart"
@@ -31,6 +34,10 @@ app.get('/', function (req, res) {
       },10000);
     }
   }
+});
+
+app.get('/uptime', function (req, res) {
+  res.send('Server uptime: ' + moment.duration(moment().diff(serverStartTime)).humanize());
 });
 
 var port = (process.env.VCAP_APP_PORT || 3000);
